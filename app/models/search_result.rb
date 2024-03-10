@@ -1,6 +1,6 @@
 class SearchResult < ApplicationRecord
-  before_save :normalize_source
-  before_save :normalize_isbn
+  before_validation :normalize_source
+  before_validation :normalize_isbn
 
   validates :isbn, :source, :payload, presence: true
   validate :isbn_length

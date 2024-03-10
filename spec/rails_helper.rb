@@ -1,4 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'factory_bot_rails'
+
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
@@ -58,6 +60,20 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
+
+  config.example_status_persistence_file_path = "spec/examples.txt"
+
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.include FactoryBot::Syntax::Methods
+
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
