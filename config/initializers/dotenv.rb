@@ -1,1 +1,1 @@
-Dotenv.require_keys("")
+Dotenv.require_keys("GOOGLE_API_KEY")
