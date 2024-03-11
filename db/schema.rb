@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_10_152715) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_11_131745) do
   create_table "search_results", force: :cascade do |t|
     t.string "isbn", null: false
     t.string "source", null: false
     t.text "payload", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "processed"
   end
+
 end
