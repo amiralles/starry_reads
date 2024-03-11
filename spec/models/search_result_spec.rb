@@ -59,4 +59,12 @@ RSpec.describe SearchResult, type: :model do
       end
     end
   end
+
+  describe 'processed?' do
+    let(:search_result) { create(:search_result) }
+
+    it "defaults to false" do
+      expect(search_result.processed).to be(false)
+    end
+  end
 end
